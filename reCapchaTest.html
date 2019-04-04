@@ -52,7 +52,7 @@
 </section>
 
 
-  <section class="engine"><a href="https://mobirise.info/e">make your own site for free</a></section><script src="assets/web/assets/jquery/jquery.min.js"></script>
+  <section class="engine"><a href="https://mobirise.info/n">free simple website templates</a></section><script src="assets/web/assets/jquery/jquery.min.js"></script>
   <script src="assets/popper/popper.min.js"></script>
   <script src="assets/tether/tether.min.js"></script>
   <script src="assets/bootstrap/js/bootstrap.min.js"></script>
@@ -60,45 +60,7 @@
   <script src="assets/dropdown/js/script.min.js"></script>
   <script src="assets/touchswipe/jquery.touch-swipe.min.js"></script>
   <script src="assets/theme/js/script.js"></script>
-  <script src='https://www.google.com/recaptcha/api.js'></script>
   
-  <form action="" method="post">
-Name : <input type="text" name="name"><br>
-City : <input type="text" name="city"><br><br>
-<div class="g-recaptcha" data-sitekey="6Le1LpwUAAAAAKipUIHIvHnfbI_OmDz8S1vQvKDM"></div>
-<input type="submit" name="submit" value="submit">
-
-</form>
-
-<?php
-if(isset($_POST['submit']))
-{
-function CheckCaptcha($userResponse) {
-        $fields_string = '';
-        $fields = array(
-            'secret' => 6Le1LpwUAAAAAOKxotT6TlaXT-j1F6_WPF1bKZHS
-            'response' => $userResponse
-        );
-        foreach($fields as $key=>$value)
-        $fields_string .= $key . '=' . $value . '&';
-        $fields_string = rtrim($fields_string, '&');
-        $ch = curl_init();
-        curl_setopt($ch, CURLOPT_URL, 'https://www.google.com/recaptcha/api/siteverify');
-        curl_setopt($ch, CURLOPT_POST, count($fields));
-        curl_setopt($ch, CURLOPT_POSTFIELDS, $fields_string);
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, True);
-        $res = curl_exec($ch);
-        curl_close($ch);
-        return json_decode($res, true);
-    }
-    $result = CheckCaptcha($_POST['g-recaptcha-response']);
-    if ($result['success']) {
-        //If the user has checked the Captcha box
-        echo "Captcha verified Successfully";
-	
-    } else {
-        // If the CAPTCHA box wasn't checked
-       echo '<script>alert("Error Message");</script>';
-    }
-}
-    ?>
+  
+</body>
+</html>
