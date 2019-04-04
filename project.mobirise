@@ -4009,21 +4009,6 @@
           "_once": "menu",
           "_params": {},
           "_anchor": "menu2-12"
-        },
-        {
-          "_params": {
-            "anchor": "deltapicodeedit-13",
-            "codeEdit": true,
-            "tinyEdit": false
-          },
-          "_customHTML": "<hr><div class=\"mbri-responsive mbr-iconfont\" style=\"font-size: 44px;\">&nbsp;</div><p>Enter text here !</p><figure class=\"mbr-figure container\"><div class=\"image-block\" style=\"width: 25%; margin: auto;\"><img src=\"../themes/mobirise4/components/_images/jumbotron.jpg\" alt=\"DeltaPi\" style=\"width: 100%;\"></div></figure>Other text...<hr>",
-          "_customCSS": ".tinymce{background-color:white;text-align:center;}",
-          "alias": "deltapicodeedit",
-          "_tags": [
-            "Extension"
-          ],
-          "_name": "deltapicodeedit",
-          "_anchor": "deltapicodeedit-13"
         }
       ]
     }
