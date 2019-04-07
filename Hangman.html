@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hangman Game</title>
+</head>
+<body>
+
+<canvas id="hangman_canvas" width="400" height="400" style="border:1px solid #c3c3c3;"></canvas><br><br>
+<label id="guess_label"></label><br><br>
+<form onclick="return checkGuess()" onsubmit="return false">
+    Input a letter: <input type="text" name="input_guess" id="letter_input" pattern="[A-Za-z]{1}" title="Single letter input">
+    <button id="button_submit">Check Guess</button>
+</form>
+
+<script>
+    var canvas = document.getElementById('hangman_canvas');
+    var ctx = canvas.getContext("2d");
+    var word = "Hangman";
+    var correctGuessArray = [];
+    var status = 0;
+
+    for (var i=0; i < word.length; i++) {
+        correctGuessArray.push(" _ ");
+    }
+
+    //head, body, leftarm, rightarm, leftleg, rightleg
+
+    //Hang Station
+    ctx.fillStyle = "#919b59";
+    ctx.fillRect(70,50,10,300); //long upright
+    ctx.fillRect(70,50,150,10); //top section
+    ctx.fillRect(25,350,100,10); //bottom
+    ctx.fillRect(220,50,10,50); //noose
+    drawStatus();
+
+    function checkGuess() {
+        var guessInput = document.getElementById("letter_input").value;
+        var guessLower = guessInput.toLowerCase();
+        if
+        for (var i = 0, len = word.length; i < len; i++) {
+            if (guessLower === word[i].toLowerCase()) {
+                correctGuessArray[i] = word[i];
+                drawStatus();
+            }
+        }
+    }
+
+    function drawStatus() {
+        document.getElementById("guess_label").innerText = "";
+        for (var a=0; a < correctGuessArray.length; a++) {
+            document.getElementById("guess_label").append(correctGuessArray[a]);
+        }
+
+        ctx.fillStyle = "#c14b59";
+        if (status >= 1) {
+            ctx.beginPath();
+            ctx.arc(225,130,30,0,2 * Math.PI);
+            ctx.stroke();
+        }
+        if (status >= 2) {
+            ctx.fillRect(223, 160, 4, 100);
+        }
+    }
+</script>
+
+</body>
+</html>
