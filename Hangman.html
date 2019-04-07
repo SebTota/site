@@ -7,17 +7,20 @@
 <body>
 
 <canvas id="hangman_canvas" width="400" height="400" style="border:1px solid #c3c3c3;"></canvas><br><br>
+<label>Wrong Guesses: </label>
+<label id="wrong_guesses"></label><br>
 <label id="guess_label"></label><br><br>
-<form onclick="return checkGuess()" onsubmit="return false">
-    Input a letter: <input type="text" name="input_guess" id="letter_input" pattern="[A-Za-z]{1}" title="Single letter input">
-    <button id="button_submit">Check Guess</button>
-</form>
+<label id="error_label"></label><br>
+
+Input a letter: <input type="text" name="input_guess" id="letter_input" title="Single letter input">
+<button id="button_submit" onclick="checkInput()">Check Guess</button>
 
 <script>
     var canvas = document.getElementById('hangman_canvas');
     var ctx = canvas.getContext("2d");
     var word = "Hangman";
     var correctGuessArray = [];
+    var wrongGuesses = [];
     var status = 0;
 
     for (var i=0; i < word.length; i++) {
@@ -34,14 +37,35 @@
     ctx.fillRect(220,50,10,50); //noose
     drawStatus();
 
-    function checkGuess() {
+    function checkInput() {
+        document.getElementById("error_label").innerText = "";
         var guessInput = document.getElementById("letter_input").value;
         var guessLower = guessInput.toLowerCase();
-        for (var i = 0, len = word.length; i < len; i++) {
-            if (guessLower === word[i].toLowerCase()) {
-                correctGuessArray[i] = word[i];
-                drawStatus();
+        document.getElementById("letter_input").value = "";
+        if (guessLower.length === 1 && guessLower.match(/[a-z]/i)) {
+            checkGuess(guessLower);
+        } else {
+            document.getElementById("error_label").innerText = "Please make sure your input is only one letter.";
+        }
+    }
+
+    function checkGuess(guessLetter) {
+        if (word.toLowerCase().includes(guessLetter)) {
+            for (var i = 0, len = word.length; i < len; i++) {
+                if (guessLetter === word[i].toLowerCase()) {
+                    correctGuessArray[i] = word[i];
+                    drawStatus();
+                }
             }
+        }
+        if (!word.toLowerCase().includes(guessLetter)) {
+            if (wrongGuesses.includes(guessLetter)) {
+                document.getElementById("error_label").innerText = "You've already made that bad guess."
+            } else {
+                status++;
+                wrongGuesses.push(guessLetter);
+            }
+            drawStatus();
         }
     }
 
@@ -49,6 +73,10 @@
         document.getElementById("guess_label").innerText = "";
         for (var a=0; a < correctGuessArray.length; a++) {
             document.getElementById("guess_label").append(correctGuessArray[a]);
+        }
+        document.getElementById("wrong_guesses").innerText = "";
+        for (var b=0; b < wrongGuesses.length; b++) {
+            document.getElementById("wrong_guesses").append(wrongGuesses[b]);
         }
 
         ctx.fillStyle = "#c14b59";
