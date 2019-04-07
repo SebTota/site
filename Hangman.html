@@ -7,9 +7,10 @@
 <body>
 
 <canvas id="hangman_canvas" width="400" height="400" style="border:1px solid #c3c3c3;"></canvas><br><br>
+
+<label id="guess_label"></label><br><br>
 <label>Wrong Guesses: </label>
 <label id="wrong_guesses"></label><br>
-<label id="guess_label"></label><br><br>
 <label id="error_label"></label><br>
 
 Input a letter: <input type="text" name="input_guess" id="letter_input" title="Single letter input">
@@ -18,7 +19,7 @@ Input a letter: <input type="text" name="input_guess" id="letter_input" title="S
 <script>
     var canvas = document.getElementById('hangman_canvas');
     var ctx = canvas.getContext("2d");
-    var word = "Hangman";
+    var word = "FuckBoyTrevor";
     var correctGuessArray = [];
     var wrongGuesses = [];
     var status = 0;
@@ -69,6 +70,12 @@ Input a letter: <input type="text" name="input_guess" id="letter_input" title="S
         }
     }
 
+    function checkWin() {
+        if (!correctGuessArray.includes(" _ ")) {
+            alert("You won!");
+        }
+    }
+
     function drawStatus() {
         document.getElementById("guess_label").innerText = "";
         for (var a=0; a < correctGuessArray.length; a++) {
@@ -76,8 +83,10 @@ Input a letter: <input type="text" name="input_guess" id="letter_input" title="S
         }
         document.getElementById("wrong_guesses").innerText = "";
         for (var b=0; b < wrongGuesses.length; b++) {
-            document.getElementById("wrong_guesses").append(wrongGuesses[b]);
+            document.getElementById("wrong_guesses").append(wrongGuesses[b] + " ");
         }
+
+        checkWin();
 
         ctx.fillStyle = "#c14b59";
         if (status >= 1) {
@@ -87,6 +96,39 @@ Input a letter: <input type="text" name="input_guess" id="letter_input" title="S
         }
         if (status >= 2) {
             ctx.fillRect(223, 160, 4, 100);
+        }
+        if (status >=3) {
+            ctx.beginPath();
+            ctx.moveTo(225, 190);
+            ctx.strokeStyle = "#c14b59";
+            ctx.lineWidth = 5;
+            ctx.lineTo(300, 150);
+            ctx.stroke();
+        }
+        if (status >=4) {
+            ctx.beginPath();
+            ctx.moveTo(225, 190);
+            ctx.strokeStyle = "#c14b59";
+            ctx.lineWidth = 5;
+            ctx.lineTo(150, 150);
+            ctx.stroke();
+        }
+        if (status >=5) {
+            ctx.beginPath();
+            ctx.moveTo(225, 260);
+            ctx.strokeStyle = "#c14b59";
+            ctx.lineWidth = 5;
+            ctx.lineTo(300, 300);
+            ctx.stroke();
+        }
+        if (status >=6) {
+            ctx.beginPath();
+            ctx.moveTo(225, 260);
+            ctx.strokeStyle = "#c14b59";
+            ctx.lineWidth = 5;
+            ctx.lineTo(150, 300);
+            ctx.stroke();
+            alert("You lost!");
         }
     }
 </script>
