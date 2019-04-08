@@ -1,68 +1,12 @@
 <!DOCTYPE html>
-<html >
+<html lang="en">
 <head>
-  <!-- Site made with Mobirise Website Builder v4.8.10, https://mobirise.com -->
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="generator" content="Mobirise v4.8.10, mobirise.com">
-  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
-  <link rel="shortcut icon" href="assets/images/logo-122x61.png" type="image/x-icon">
-  <meta name="description" content="Site Builder Description">
-  <title>Hangman</title>
-  <link rel="stylesheet" href="assets/web/assets/mobirise-icons/mobirise-icons.css">
-  <link rel="stylesheet" href="assets/tether/tether.min.css">
-  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
-  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap-grid.min.css">
-  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap-reboot.min.css">
-  <link rel="stylesheet" href="assets/dropdown/css/style.css">
-  <link rel="stylesheet" href="assets/theme/css/style.css">
-  <link rel="stylesheet" href="assets/mobirise/css/mbr-additional.css" type="text/css">
-  
-  
-  
+    <meta charset="UTF-8">
+    <title>Hangman Game</title>
 </head>
 <body>
-  <section class="menu cid-re7G5qz74r" once="menu" id="menu2-15">
 
-    
-
-    <nav class="navbar navbar-expand beta-menu navbar-dropdown align-items-center navbar-fixed-top navbar-toggleable-sm">
-        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <div class="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-        </button>
-        <div class="menu-logo">
-            <div class="navbar-brand">
-                
-                <span class="navbar-caption-wrap"><a class="navbar-caption text-black display-4" href="index.html">
-                        Sebastian Tota</a></span>
-            </div>
-        </div>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav nav-dropdown nav-right" data-app-modern-menu="true"><li class="nav-item"><a class="nav-link link text-black display-4" href="index.html">Home</a></li><li class="nav-item dropdown open"><a class="nav-link link dropdown-toggle text-black display-4" href="Software.html" data-toggle="dropdown-submenu" aria-expanded="true">Software</a><div class="dropdown-menu"><a class="dropdown-item text-black display-4" href="SimpleCaptchaSolver.html" aria-expanded="false">Simple Captcha Solver<br></a><a class="dropdown-item text-black display-4" href="AmazonGiveawayBot.html">Amazon Giveaway Bot<br></a><a class="text-black dropdown-item display-4" href="Selenium_Email_Verification.html" aria-expanded="false">Selenium Email Verification</a><a class="text-black dropdown-item display-4" href="Hangman.html" aria-expanded="false">Hangman Online</a></div></li><li class="nav-item">
-                    <a class="nav-link link text-black display-4" href="Photography.html">Photography</a>
-                </li><li class="nav-item"><a class="nav-link link text-black display-4" href="Contact.html">Contact</a></li></ul>
-            
-        </div>
-    </nav>
-</section>
-
-
-  <section class="engine"><a href="https://mobirise.info/j">website templates</a></section><script src="assets/web/assets/jquery/jquery.min.js"></script>
-  <script src="assets/popper/popper.min.js"></script>
-  <script src="assets/tether/tether.min.js"></script>
-  <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-  <script src="assets/smoothscroll/smooth-scroll.js"></script>
-  <script src="assets/dropdown/js/script.min.js"></script>
-  <script src="assets/touchswipe/jquery.touch-swipe.min.js"></script>
-  <script src="assets/theme/js/script.js"></script>
-  
-  <br><br>
-  <canvas id="hangman_canvas" width="400" height="400""></canvas><br><br>
+<canvas id="hangman_canvas" width="400" height="400" style="border:1px solid #c3c3c3;"></canvas><br><br>
 
 <label id="guess_label"></label><br><br>
 <label>Wrong Guesses: </label>
@@ -73,152 +17,9 @@ Input a letter: <input type="text" name="input_guess" id="letter_input" title="S
 <button id="button_submit" onclick="checkInput()">Check Guess</button>
 <button id="button_reset" onclick="reset()">Reset</button>
 
-<script>
-    var canvas = document.getElementById('hangman_canvas');
-    var ctx = canvas.getContext("2d");
-    var wordsArray = ["abruptly", "askew", "azure", "buzzing", "duplex", "grogginess", "jawbreaker", "microwave",
-        "thumbscrew", "wristwatch", "numbskull", "razzmatazz", "xylophone", "yachtsman", "buzz", "fizz"];
-    var word = wordsArray[Math.floor(Math.random() * wordsArray.length+1)];
-    var correctGuessArray = [];
-    var wrongGuesses = [];
-    var status = 0;
-
-    reset();
-
-    //head, body, leftarm, rightarm, leftleg, rightleg
-
-    //Hang Station
-    ctx.fillStyle = "#919b59";
-    ctx.fillRect(70,50,10,300); //long upright
-    ctx.fillRect(70,50,150,10); //top section
-    ctx.fillRect(25,350,100,10); //bottom
-    ctx.fillRect(220,50,10,50); //noose
-    drawStatus();
-
-    function checkWin() {
-        if (!correctGuessArray.includes(" _ ")) {
-            endGame("Nice job!")
-        }
-    }
-
-
-    function loss() {
-        endGame("Sorry you lost!")
-    }
-
-    function endGame(endMessage) {
-        document.getElementById("button_submit").disabled = true;
-        document.getElementById("letter_input").disabled = true;
-        document.getElementById("letter_input").value = endMessage;
-        document.getElementById("guess_label").innerText = "";
-        for (var a=0; a < word.length; a++) {
-            document.getElementById("guess_label").append(word[a]);
-        }
-    }
-
-    function reset() {
-        document.getElementById("button_submit").disabled = false;
-        document.getElementById("letter_input").disabled = false;
-        document.getElementById("letter_input").value = "";
-        correctGuessArray = [];
-        wrongGuesses = [];
-        status  = 0;
-        word = wordsArray[Math.floor(Math.random() * wordsArray.length+1)];
-        for (var i=0; i < word.length; i++) {
-            correctGuessArray.push(" _ ");
-        }
-        drawStatus();
-    }
-
-    function checkInput() {
-        document.getElementById("error_label").innerText = "";
-        var guessInput = document.getElementById("letter_input").value;
-        var guessLower = guessInput.toLowerCase();
-        document.getElementById("letter_input").value = "";
-        if (guessLower.length === 1 && guessLower.match(/[a-z]/i)) {
-            checkGuess(guessLower);
-        } else {
-            document.getElementById("error_label").innerText = "Please make sure your input is only one letter.";
-        }
-    }
-
-    function checkGuess(guessLetter) {
-        if (word.toLowerCase().includes(guessLetter)) {
-            for (var i = 0, len = word.length; i < len; i++) {
-                if (guessLetter === word[i].toLowerCase()) {
-                    correctGuessArray[i] = word[i];
-                    drawStatus();
-                    checkWin();
-                }
-            }
-        }
-        if (!word.toLowerCase().includes(guessLetter)) {
-            if (wrongGuesses.includes(guessLetter)) {
-                document.getElementById("error_label").innerText = "You've already made that bad guess."
-            } else {
-                status++;
-                wrongGuesses.push(guessLetter);
-            }
-            drawStatus();
-        }
-    }
-
-    function drawStatus() {
-        document.getElementById("guess_label").innerText = "";
-        for (var a=0; a < correctGuessArray.length; a++) {
-            document.getElementById("guess_label").append(correctGuessArray[a]);
-        }
-        document.getElementById("wrong_guesses").innerText = "";
-        for (var b=0; b < wrongGuesses.length; b++) {
-            document.getElementById("wrong_guesses").append(wrongGuesses[b] + " ");
-        }
-        ctx.lineWidth = 5;
-        if (status == 0) {
-            ctx.clearRect(0, 0, 400, 400);
-            ctx.fillStyle = "#919b59";
-            ctx.fillRect(70,50,10,300); //long upright
-            ctx.fillRect(70,50,150,10); //top section
-            ctx.fillRect(25,350,100,10); //bottom
-            ctx.fillRect(220,50,10,50); //noose
-        }
-        ctx.fillStyle = "#c14b59";
-        ctx.strokeStyle = "#c14b59";
-        if (status >= 1) {
-            ctx.beginPath();
-            ctx.arc(225,130,30,0,2 * Math.PI);
-            ctx.stroke();
-        }
-        if (status >= 2) {
-            ctx.fillRect(223, 160, 4, 100);
-        }
-        if (status >=3) {
-            ctx.beginPath();
-            ctx.moveTo(225, 190);
-            ctx.lineTo(300, 150);
-            ctx.stroke();
-        }
-        if (status >=4) {
-            ctx.beginPath();
-            ctx.moveTo(225, 190);
-            ctx.lineTo(150, 150);
-            ctx.stroke();
-        }
-        if (status >=5) {
-            ctx.beginPath();
-            ctx.moveTo(225, 260);
-            ctx.lineTo(300, 300);
-            ctx.stroke();
-        }
-        if (status >=6) {
-            ctx.beginPath();
-            ctx.moveTo(225, 260);
-            ctx.lineTo(150, 300);
-            ctx.stroke();
-            loss();
-        }
-    }
+<script type="text/javascript"
+        src="Hangman.js">
 </script>
-  
-  
+
 </body>
 </html>
