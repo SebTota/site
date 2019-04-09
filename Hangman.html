@@ -18,8 +18,12 @@
   <link rel="stylesheet" href="assets/theme/css/style.css">
   <link rel="stylesheet" href="assets/mobirise/css/mbr-additional.css" type="text/css">
   
-  
-  
+  <style>
+    div.canvas {
+      position: relative;
+      left: 30px;
+    }
+  </style>
 </head>
 <body>
   <section class="menu cid-re7G5qz74r" once="menu" id="menu2-15">
@@ -63,6 +67,8 @@
   
   <br><br>
   
+  
+  <div class="canvas">
   <canvas id="hangman_canvas" width="400" height="400"></canvas><br><br>
 
 <label id="guess_label"></label><br><br>
@@ -73,6 +79,7 @@
 Input a letter: <input type="text" name="input_guess" id="letter_input" title="Single letter input">
 <button id="button_submit" onclick="checkInput()">Check Guess</button>
 <button id="button_reset" onclick="reset()">Reset</button>
+</div>
 
 <script type="text/javascript"
         src="Hangman.js">
