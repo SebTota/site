@@ -7,9 +7,9 @@
   <meta name="generator" content="Mobirise v4.10.3, mobirise.com">
   <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
   <link rel="shortcut icon" href="assets/images/logo-122x61.png" type="image/x-icon">
-  <meta name="description" content="reCaptcha Test Site">
+  <meta name="description" content="Website Maker Description">
   
-  <title>reCaptcha Test</title>
+  <title>Running Calculator</title>
   <link rel="stylesheet" href="assets/web/assets/mobirise-icons/mobirise-icons.css">
   <link rel="stylesheet" href="assets/tether/tether.min.css">
   <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
@@ -23,7 +23,7 @@
   
 </head>
 <body>
-  <section class="menu cid-re7G5qz74r" once="menu" id="menu2-12">
+  <section class="menu cid-re7G5qz74r" once="menu" id="menu2-1d">
 
     
 
@@ -52,8 +52,72 @@
     </nav>
 </section>
 
+<section class="engine"><a href="https://mobirise.info/w">html5 templates</a></section><section class="mbr-section article content1 body cid-rE976oIzQM" id="custom-html-1e">
 
-  <section class="engine"><a href="https://mobirise.info/t">amp templates</a></section><script src="assets/web/assets/jquery/jquery.min.js"></script>
+     
+
+    <div class="container">
+        <div class="media-container-row">
+            <div class="container">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <h1 class="title display-6 text-center mb-2">Running Pace Calculator</h1>
+            <form class="input_fields">
+                <div class="distance">
+                    <h6 class="input_labels">Distance:</h6>
+                    <div class="input-group mb-2">
+                        <input id="distanceInput" type="number" class="form-control" placeholder="Distance" min="0">
+                        <div class="distance_dropdown custom_dropdown">
+                            <select class="form-control" id="distance_selector">
+                                <option value="miles">Mile(s)</option>
+                                <option value="kilometers">Kilometer(s)</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="time">
+                    <h6 class="input_labels">Time:</h6>
+                    <div class="input-group mb-2">
+                        <input id="timeHourInput" type="number" class="form-control time-input" placeholder="Hr" min="0" max="59">
+                        <span class="input-group-btn" style="width:0px;"></span>
+                        <input id="timeMinuteInput" type="number" class="form-control time-input" placeholder="Min" min="0" max="59">
+                        <span class="input-group-btn" style="width:0px;"></span>
+                        <input id="timeSecondInput" type="number" class="form-control time-input" placeholder="Sec" min="0" max="59">
+                    </div>
+                </div>
+                <div class="pace">
+                    <h6 class="input_labels">Pace:</h6>
+                    <div class="input-group mb-2">
+                        <span class="input-group-btn" style="width:0px;"></span>
+                        <input id="paceMinuteInput" type="number" class="form-control time-input" placeholder="Min" min="0" max="59">
+                        <span class="input-group-btn" style="width:0px;"></span>
+                        <input id="paceSecondInput" type="number" class="form-control time-input" placeholder="Sec" min="0" max="59">
+                        <div class="pace_dropdown custom_dropdown">
+                            <select class="form-control" id="pace_selector">
+                                <option value="mile">Per mile</option>
+                                <option value="kilometer">Per kilometer</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </form>
+
+            <div class="input-group control_buttons">
+                <button id="reset" class="reset form-control">Reset</button>
+            </div>
+
+            <div id="output">
+
+            </div>
+        </div>
+    </div>
+</div>
+        </div>
+    </div>
+</section>
+
+
+  <script src="assets/web/assets/jquery/jquery.min.js"></script>
   <script src="assets/popper/popper.min.js"></script>
   <script src="assets/tether/tether.min.js"></script>
   <script src="assets/bootstrap/js/bootstrap.min.js"></script>
