@@ -494,7 +494,9 @@
       "settings": {
         "meta_descr": "Web Site Builder Description",
         "title": "RunningPaceCalculator",
-        "order": 2
+        "order": 2,
+        "header_custom": "",
+        "footer_custom": "<script src=\"RunningPaceCalculator.js\"></script>"
       },
       "components": [
         {
