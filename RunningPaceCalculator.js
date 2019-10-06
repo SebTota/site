@@ -88,14 +88,14 @@ function calculatePace() {
     totalPaceSecondsMiles = totalTimeSeconds/totalDistanceMiles;
 
     if (paceUnitInput.value === "mile") {
-        if (totalPaceSecondsMiles % 60 > 0) {
+        if (totalPaceSecondsMiles % 60 >= 0) {
             paceMinuteInput.value = ((totalPaceSecondsMiles/60) | 0);
             totalPaceSecondsMiles = totalPaceSecondsMiles - (+paceMinuteInput.value * 60);
         }
         paceSecondInput.value = Math.round(totalPaceSecondsMiles);
     } else if (paceUnitInput.value === "kilometer") {
         totalPaceSecondsMiles /= mToKm;
-        if (totalPaceSecondsMiles % 60 > 0) {
+        if (totalPaceSecondsMiles % 60 >= 0) {
             paceMinuteInput.value = ((totalPaceSecondsMiles/60) | 0);
             totalPaceSecondsMiles = totalPaceSecondsMiles - (+paceMinuteInput.value * 60);
         }
