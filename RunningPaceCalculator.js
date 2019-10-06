@@ -14,6 +14,9 @@ var paceUnitInput = document.getElementById('pace_selector');
 
 // -----functions-----
 function checkInput(input, min, max) {
+    if (input.value.length > 2 && input !== distanceInput) {
+        input.value = input.value.slice(0, 2);
+    }
     if (isNaN(+input.value)) {
         input.value = "";
     }
@@ -98,22 +101,6 @@ function calculatePace() {
         }
         paceSecondInput.value = Math.round(totalPaceSecondsMiles);
     }
-
-    /*
-    if (paceUnitInput.value === "mile") {
-        i
-    } else if (paceUnitInput.value === "kilometer") {
-        totalPaceSecondsMiles *= mToKm;
-        if (totalPaceSecondsMiles % 60 === 0) {
-            paceMinuteInput.value = totalPaceSecondsMiles | 0;
-            totalPaceSecondsMiles -= +paceMinuteInput.value;
-        }
-        paceSecondInput.value = Math.round(totalPaceSecondsMiles);
-    }
-    */
-
-
-
 }
 function resetFields() {
     var input_field = document.getElementsByClassName('form-control'); //list of all input fields
@@ -160,7 +147,7 @@ distanceUnitInput.onchange = function() {
 };
 //Distance Input
 distanceInput.addEventListener('input', function(e) {
-    checkInput(distanceInput, 0, 9999999999);
+    checkInput(distanceInput, 0, 99999999);
     if (distanceInput.value !== "") {
         distanceBusy = true;
     }
@@ -213,6 +200,3 @@ paceSecondInput.addEventListener('input', function(e) {
     checkInput(paceSecondInput, 0, 59);
     paceInputListener();
 });
-
-
-
