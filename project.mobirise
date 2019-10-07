@@ -1,7 +1,7 @@
 {
   "settings": {
     "name": "NewSite",
-    "currentPage": "contact.html",
+    "currentPage": "index.html",
     "theme": {
       "name": "mobirise4",
       "title": "Mobirise 4",
@@ -41,7 +41,7 @@
         "main": true,
         "title": "Home",
         "meta_descr": "",
-        "header_custom": "",
+        "header_custom": "<META HTTP-EQUIV=\"CACHE-CONTROL\" CONTENT=\"NO-CACHE\">",
         "footer_custom": "",
         "html_before": ""
       },
@@ -494,7 +494,8 @@
       "settings": {
         "meta_descr": "Web Page Builder Description",
         "title": "Contact",
-        "order": 1
+        "order": 1,
+        "header_custom": "<META HTTP-EQUIV=\"CACHE-CONTROL\" CONTENT=\"NO-CACHE\">"
       },
       "components": [
         {
@@ -997,7 +998,7 @@
         "meta_descr": "Web Site Builder Description",
         "title": "RunningPaceCalculator",
         "order": 2,
-        "header_custom": "",
+        "header_custom": "<META HTTP-EQUIV=\"CACHE-CONTROL\" CONTENT=\"NO-CACHE\">",
         "footer_custom": "<script src=\"RunningPaceCalculator.js\"></script>"
       },
       "components": [
