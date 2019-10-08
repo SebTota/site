@@ -60,7 +60,7 @@ function calculateTime() {
         totalPacePerMile = (+paceMinuteInput.value*60 + +paceSecondInput.value)*mToKm;
     }
 
-    totalTimeSeconds = totalDistanceMiles * totalPacePerMile;
+    totalTimeSeconds = Math.round(totalDistanceMiles * totalPacePerMile);
 
     if (totalTimeSeconds / 3600 >= 1) {
         timeHourInput.value = (Math.floor(totalTimeSeconds/3600));
@@ -85,7 +85,7 @@ function calculatePace() {
         totalDistanceMiles = +distanceInput.value / mToKm;
     }
 
-    totalPaceSecondsMiles = totalTimeSeconds/totalDistanceMiles;
+    totalPaceSecondsMiles = Math.round(totalTimeSeconds/totalDistanceMiles);
 
     if (paceUnitInput.value === "mile") {
         if (totalPaceSecondsMiles / 60 >= 1) {
