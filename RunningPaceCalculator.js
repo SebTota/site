@@ -99,7 +99,7 @@ function calculatePace() {
             paceMinuteInput.value = (Math.floor(totalPaceSecondsMiles/60));
             totalPaceSecondsMiles = totalPaceSecondsMiles - (+paceMinuteInput.value * 60);
         }
-        paceSecondInput.value = Math.round(totalPaceSecondsMiles);
+        paceSecondInput.value = totalPaceSecondsMiles | 0;
     }
 }
 function resetFields() {
