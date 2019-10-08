@@ -62,11 +62,11 @@ function calculateTime() {
 
     totalTimeSeconds = totalDistanceMiles * totalPacePerMile;
 
-    if (totalTimeSeconds % 3600 >= 0) {
+    if (totalTimeSeconds / 3600 >= 1) {
         timeHourInput.value = ((totalTimeSeconds/3600) | 0);
         totalTimeSeconds -= (+timeHourInput.value * 3600); //totalTimeSeconds = totalTimeSeconds - hours value
     }
-    if (totalTimeSeconds % 60 >= 0) {
+    if (totalTimeSeconds / 60 >= 1) {
         timeMinuteInput.value = ((totalTimeSeconds/60) | 0);
         totalTimeSeconds -= (+timeMinuteInput.value * 60); //totalTimeSeconds = totalTimeSeconds - minute value
     }
@@ -88,14 +88,14 @@ function calculatePace() {
     totalPaceSecondsMiles = totalTimeSeconds/totalDistanceMiles;
 
     if (paceUnitInput.value === "mile") {
-        if (totalPaceSecondsMiles % 60 >= 0) {
+        if (totalPaceSecondsMiles / 60 >= 1) {
             paceMinuteInput.value = ((totalPaceSecondsMiles/60) | 0);
             totalPaceSecondsMiles = totalPaceSecondsMiles - (+paceMinuteInput.value * 60);
         }
         paceSecondInput.value = Math.round(totalPaceSecondsMiles);
     } else if (paceUnitInput.value === "kilometer") {
         totalPaceSecondsMiles /= mToKm;
-        if (totalPaceSecondsMiles % 60 >= 0) {
+        if (totalPaceSecondsMiles / 60 >= 1) {
             paceMinuteInput.value = ((totalPaceSecondsMiles/60) | 0);
             totalPaceSecondsMiles = totalPaceSecondsMiles - (+paceMinuteInput.value * 60);
         }
