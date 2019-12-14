@@ -1,7 +1,7 @@
 {
   "settings": {
     "name": "NewSite",
-    "currentPage": "page3.html",
+    "currentPage": "norecap.html",
     "theme": {
       "name": "mobirise4",
       "title": "Mobirise 4",
@@ -38,7 +38,7 @@
         "url": "https://fonts.googleapis.com/css?family=Rubik:300,300i,400,400i,500,500i,700,700i,900,900i"
       }
     ],
-    "uniqCompNum": 17,
+    "uniqCompNum": 21,
     "versionPublish": "4.11.6",
     "screenshot": "screenshot.png"
   },
@@ -47,7 +47,7 @@
       "settings": {
         "main": true,
         "title": "Home",
-        "meta_descr": "",
+        "meta_descr": "Sebastian Tota",
         "header_custom": "<META HTTP-EQUIV=\"CACHE-CONTROL\" CONTENT=\"NO-CACHE\">",
         "footer_custom": "",
         "html_before": ""
@@ -499,9 +499,9 @@
     },
     "contact.html": {
       "settings": {
-        "meta_descr": "Web Page Builder Description",
+        "meta_descr": "Sebastian Tota - Contact",
         "title": "Contact",
-        "order": 2,
+        "order": 3,
         "header_custom": "<META HTTP-EQUIV=\"CACHE-CONTROL\" CONTENT=\"NO-CACHE\">"
       },
       "components": [
@@ -1002,9 +1002,9 @@
     },
     "runningCalc.html": {
       "settings": {
-        "meta_descr": "Web Site Builder Description",
+        "meta_descr": "Sebastian Tota - Running Pace Calculator",
         "title": "RunningPaceCalculator",
-        "order": 3,
+        "order": 4,
         "header_custom": "<META HTTP-EQUIV=\"CACHE-CONTROL\" CONTENT=\"NO-CACHE\">",
         "footer_custom": "<script src=\"RunningPaceCalculator.js\"></script>"
       },
@@ -1466,9 +1466,9 @@
         }
       ]
     },
-    "page3.html": {
+    "norecap.html": {
       "settings": {
-        "meta_descr": "Web Page Creator Description",
+        "meta_descr": "Sebastian Tota - reCaptcha Solver",
         "title": "reCaptcha",
         "order": 1
       },
