@@ -1,4 +1,4 @@
-const apiUrl = "http://3.21.207.37"
+const apiUrl = "https://3.21.207.37"
 const apiPort = "3000"
 
 //---API CALLS---//
