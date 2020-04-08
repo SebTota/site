@@ -21,7 +21,12 @@ async function getClasses(classes) {
     let apiCall = apiUrl + ":" + apiPort + "/classes?" + genClassArrStr(classes);
 
     // Make api call and wait for response before returning
-    let response = await fetch(apiCall);
+    let response = await fetch(apiCall, {
+  mode: 'cors',
+  headers: {
+    'Access-Control-Allow-Origin':'*'
+  }
+});
     return await response.json();
 }
 
